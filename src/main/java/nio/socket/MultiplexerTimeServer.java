@@ -14,15 +14,17 @@ import java.util.Set;
 public class MultiplexerTimeServer implements Runnable {
 
     private Selector selector;
-    private ServerSocketChannel servChannnel;
+    private ServerSocketChannel servChannel;
     private volatile boolean stop;
 
+    //初始化
     public MultiplexerTimeServer(int port) {
         try {
-            selector=Selector.open();
-            servChannnel=ServerSocketChannel.open();
-            servChannnel.configureBlocking(false);
-            servChannnel.socket().bind(new InetSocketAddress(port),1024);
+            selector=Selector.open();//选择器的初始化
+            servChannel=ServerSocketChannel.open();
+            servChannel.configureBlocking(false);//channel设置为非阻塞
+            servChannel.socket().bind(new InetSocketAddress(port),1024);
+            servChannel.register(selector, SelectionKey.OP_ACCEPT);//注册通道
             System.out.println("the timer SERVER is start in port :"+port);
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,12 +41,15 @@ public class MultiplexerTimeServer implements Runnable {
         while (!stop){
             try {
                 selector.select(1000);
-                Set<SelectionKey> selectionKeys=selector.selectedKeys();
+                //将线程置于睡眠状态，直到这些感兴趣的事情中的操作中的一个发生或者 1 秒钟的时间过去
+                Set<SelectionKey> selectionKeys=selector.selectedKeys();//已经准备好的键的集合
                 Iterator<SelectionKey> it=selectionKeys.iterator();
                 SelectionKey key=null;
                 while (it.hasNext()){
+                    System.out.println(12);
                     key=it.next();
-                    it.remove();
+                    System.out.println(key.isValid());
+                    it.remove();//处理完就从已选择键集合删除
                     try {
                         handleInput(key);
                     }catch (Exception e){
@@ -75,7 +80,7 @@ public class MultiplexerTimeServer implements Runnable {
                 ServerSocketChannel ssc=(ServerSocketChannel)key.channel();
                 SocketChannel sc=ssc.accept();
                 sc.configureBlocking(false);
-                sc.register(selector,SelectionKey.OP_READ);
+                sc.register(selector,SelectionKey.OP_READ);//重新注册
             }
             if (key.isReadable()){
                 SocketChannel sc= (SocketChannel) key.channel();

@@ -14,7 +14,7 @@ public class TimeClientHandle implements Runnable {
     private int port;
     private Selector selector;
     private SocketChannel socketChannel;
-    private volatile boolean stop;
+    private volatile boolean stop;//默认值为false
 
     public TimeClientHandle(String host, int port) {
         this.host = host;

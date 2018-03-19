@@ -3,7 +3,7 @@ package nio.socket;
 
 public class TimeClient {
     public static void main(String[] args) {
-        int port=18888;
+        int port=18887;
         if (args!=null && args.length>0){
             port=Integer.parseInt(args[0]);
         }

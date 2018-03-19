@@ -1,7 +1,5 @@
 package nio.socket;
 
-import nio.socket.MultiplexerTimeServer;
-
 public class TimeServer {
     public static void main(String[] args) {
         int port=18888;
