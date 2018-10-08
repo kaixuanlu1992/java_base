@@ -4,6 +4,11 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../My-Blog-master/pom.xml" />
+        <option value="$PROJECT_DIR$/../Spring-Cloud/pom.xml" />
+        <option value="$PROJECT_DIR$/../demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/../eureka-consumer/pom.xml" />
       </list>
     </option>
   </component>

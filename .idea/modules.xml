@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JAVA_se_ee.iml" filepath="$PROJECT_DIR$/JAVA_se_ee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../eureka/demo.iml" filepath="$PROJECT_DIR$/../eureka/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../demo/demo (1) (com.example).iml" filepath="$PROJECT_DIR$/../demo/demo (1) (com.example).iml" />
+      <module fileurl="file://$PROJECT_DIR$/../eureka-consumer/eureka-consumer.iml" filepath="$PROJECT_DIR$/../eureka-consumer/eureka-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../My-Blog-master/my-blog.iml" filepath="$PROJECT_DIR$/../My-Blog-master/my-blog.iml" />
     </modules>
   </component>
 </project>
